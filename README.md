@@ -21,6 +21,7 @@ The backtest covers 391 monthly rebalances, 1990-02 to 2022-08. The monthly cros
 1,845 to 3,609 firms (2,755 on average); after the outlier bucket and the spread filter, 285 of them
 are traded in an average month, 10.4% of the cross section (measured from
 `results/Individual_Result/K_mean/50.csv`).
+
 Inputs are the firm-characteristic panel produced by the companion repository
 [`WRDS`](https://github.com/JUHWANKIM-ai/WRDS) (WRDS Compustat and CRSP, 78 characteristics plus 49
 momentum columns per firm-month); that repository is the data stage for this one, and this one is
@@ -29,8 +30,9 @@ the strategy and backtest stage. A UK panel is committed as well, but no code pa
 Everything is CSV. The repository holds **42,441 files and about 5.3 GiB** of them, because the unit
 of data is one month of one configuration: 392 monthly files per configuration and 106
 configurations of cluster labels. Nine Python files and five notebooks, 985 lines of code by
-`lizard`'s count with 688 of them in `src/`, sit on top of that. See [ARCHITECTURE.md](ARCHITECTURE.md) for the module map, the
-conventions the code depends on, and the complexity ranking.
+`lizard`'s count with 688 of them in `src/`, sit on top of that. See
+[ARCHITECTURE.md](ARCHITECTURE.md) for the module map, the conventions the code depends on, and
+the complexity ranking.
 
 ## Pipeline
 
