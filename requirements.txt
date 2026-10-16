@@ -1,0 +1,27 @@
+# Derived from the imports in src/ and the notebooks. The environment the committed
+# results were produced in was not recorded, so the only versions pinned here are
+# the bounds the code itself forces; everything else is left unpinned on purpose.
+
+numpy
+matplotlib
+
+# DataFrame.applymap (src/features.py, src/invest_table.py) and
+# fillna(method='ffill') (src/features.py) were both removed in pandas 3.0.
+pandas<3.0
+
+# scipy.stats.mstats.winsorize, scipy.spatial.distance,
+# scipy.stats.ttest_ind_from_stats
+scipy
+
+# src/clustering.py calls AgglomerativeClustering(metric=...); that argument was
+# named 'affinity' before scikit-learn 1.2.
+scikit-learn>=1.2
+
+# coint, adfuller, kpss, and OLS with HAC (Newey-West) covariance
+statsmodels
+
+# ppo_threshold.ipynb and src/ppo_env.py only. The CartPole reference loop in the
+# notebook unpacks env.reset() -> (obs, info) and env.step() -> 5-tuple, which is
+# the gym 0.26+ API.
+torch
+gym>=0.26

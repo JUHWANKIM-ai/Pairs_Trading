@@ -1,5 +1,5 @@
 from scipy import stats
-from utils.PCA_and_ETC import *
+from src.features import *
 
 import statsmodels.api as sm
 

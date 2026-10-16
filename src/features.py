@@ -3,7 +3,7 @@ import warnings
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-from Module import Metrics as M
+from src import metrics as M
 from sklearn.decomposition import PCA
 from sklearn.preprocessing import StandardScaler
 warnings.filterwarnings("ignore")
@@ -223,7 +223,7 @@ def plot_result(result_df, clustering_name, new_Plot: bool, apply_log: bool):
 
 def save_and_plot_result(result_df: pd.DataFrame, output_dir, clustering_name, file_names, best: bool):
     if best:
-        file = 'Database/ETC/sp500_return_div.csv'
+        file = 'data/ETC/sp500_return_div.csv'
         df = pd.read_csv(file)
         df = df.iloc[0:, :]
         df = df.T

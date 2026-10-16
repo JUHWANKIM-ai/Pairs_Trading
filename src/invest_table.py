@@ -1,4 +1,4 @@
-from utils.PCA_and_ETC import *
+from src.features import *
 
 
 class Invest_Table:

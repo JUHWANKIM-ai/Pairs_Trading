@@ -1,18 +1,18 @@
-from utils.PCA_and_ETC import *
+from src.features import *
 
-from Module import Cointegration as CI, Invest_Table as I
+from src import cointegration as CI, invest_table as I
 
 # hyper parameter K(3, 5, 10, 25, 50, 75, 100, 200, 300) should be tested manually.(paper follow)
 K_mean_Save = True
 if K_mean_Save:
-    input_dir = 'Database/Clustering_Result/K_mean'
+    input_dir = 'data/Clustering_Result/K_mean'
     subdirectories = [d for d in os.listdir(input_dir)]
 
     for subdir in subdirectories:
         top_df = pd.DataFrame(columns=['month', 'invested', 'outlier', 'first', 'second',
                                        'rest', 'total', 'number of clusters'])
         base_directory = f'{input_dir}/{subdir}'
-        output_dir = f'Database/LS_Result/K_mean/{subdir}'
+        output_dir = f'data/LS_Result/K_mean/{subdir}'
         files = sorted(filename for filename in os.listdir(base_directory) if filename.endswith('.csv'))
 
         for file in files:
@@ -50,19 +50,19 @@ if K_mean_Save:
                                     'number of clusters': len(sublist_lengths[1:])})
 
             top_df = pd.concat([top_df, new_row], ignore_index=True)
-        top_df.to_csv(os.path.join('File/Individual_Result/K_mean', f'{subdir}.csv'), index=False)
+        top_df.to_csv(os.path.join('results/Individual_Result/K_mean', f'{subdir}.csv'), index=False)
 
 # hyper parameter eps percentile np.range(0.1, 1, 0.1) should be tested manually.(paper follow) Done!
 dbscan_Save = False
 if dbscan_Save:
-    input_dir = 'Database/Clustering_Result/DBSCAN'
+    input_dir = 'data/Clustering_Result/DBSCAN'
     subdirectories = [d for d in os.listdir(input_dir)]
 
     for subdir in subdirectories:
         top_df = pd.DataFrame(columns=['month', 'invested', 'outlier', 'first', 'second',
                                        'rest', 'total', 'number of clusters'])
         base_directory = f'{input_dir}/{subdir}'
-        output_dir = f'Database/LS_Result/DBSCAN/{subdir}'
+        output_dir = f'data/LS_Result/DBSCAN/{subdir}'
         files = sorted(filename for filename in os.listdir(base_directory) if filename.endswith('.csv'))
 
         for file in files:
@@ -100,19 +100,19 @@ if dbscan_Save:
                                     'number of clusters': len(sublist_lengths[1:])})
 
             top_df = pd.concat([top_df, new_row], ignore_index=True)
-        top_df.to_csv(os.path.join('File/Individual_Result/DBSCAN', f'{subdir}.csv'), index=False)
+        top_df.to_csv(os.path.join('results/Individual_Result/DBSCAN', f'{subdir}.csv'), index=False)
 
 # hyper parameter distance percentile np.range(0.1, 1, 0.1) should be tested manually.(paper follow) Done!
 agglomerative_Save = False
 if agglomerative_Save:
-    input_dir = 'Database/Clustering_Result/Agglomerative'
+    input_dir = 'data/Clustering_Result/Agglomerative'
     subdirectories = [d for d in os.listdir(input_dir)]
 
     for subdir in subdirectories:
         top_df = pd.DataFrame(columns=['month', 'invested', 'outlier', 'first', 'second',
                                        'rest', 'total', 'number of clusters'])
         base_directory = f'{input_dir}/{subdir}'
-        output_dir = f'Database/LS_Result/Agglomerative/{subdir}'
+        output_dir = f'data/LS_Result/Agglomerative/{subdir}'
         files = sorted(filename for filename in os.listdir(base_directory) if filename.endswith('.csv'))
 
         for file in files:
@@ -150,18 +150,18 @@ if agglomerative_Save:
                                     'number of clusters': len(sublist_lengths[1:])})
 
             top_df = pd.concat([top_df, new_row], ignore_index=True)
-        top_df.to_csv(os.path.join('File/Individual_Result/Agglomerative', f'{subdir}.csv'), index=False)
+        top_df.to_csv(os.path.join('results/Individual_Result/Agglomerative', f'{subdir}.csv'), index=False)
 
 contrastive = False
 if contrastive:
-    input_dir = f'Database/Clustering_Result/Contrastive_Learning2/CL_pre_0.8'
+    input_dir = f'data/Clustering_Result/Contrastive_Learning2/CL_pre_0.8'
     subdirectories = [d for d in os.listdir(input_dir)]
 
     for subdir in subdirectories:
         top_df = pd.DataFrame(columns=['month', 'invested', 'outlier', 'first', 'second',
                                        'rest', 'total', 'number of clusters'])
         base_directory = f'{input_dir}/{subdir}'
-        output_dir = f'Database/LS_Result/Contrastive_Learning2/{subdir}'
+        output_dir = f'data/LS_Result/Contrastive_Learning2/{subdir}'
         files = sorted(filename for filename in os.listdir(base_directory) if filename.endswith('.csv'))
 
         for file in files:
@@ -199,12 +199,12 @@ if contrastive:
                                     'number of clusters': len(sublist_lengths[1:])})
 
             top_df = pd.concat([top_df, new_row], ignore_index=True)
-        top_df.to_csv(os.path.join(f'File/Individual_Result/Contrastive_Learning2', f'{subdir}.csv'), index=False)
+        top_df.to_csv(os.path.join(f'results/Individual_Result/Contrastive_Learning2', f'{subdir}.csv'), index=False)
 
 Reversal_Save = False
 if Reversal_Save:
-    input_dir = 'Database/characteristics_US'
-    output_dir = 'Database/LS_Result/Reversal'
+    input_dir = 'data/characteristics_US'
+    output_dir = 'data/LS_Result/Reversal'
     files = sorted(filename for filename in os.listdir(input_dir))
 
     for file in files:
@@ -219,8 +219,8 @@ if Reversal_Save:
 
 cointegration = False
 if cointegration:
-    input_dir = 'Database/characteristics_US'
-    output_dir = 'Database/LS_Result/Total/Cointegration'
+    input_dir = 'data/characteristics_US'
+    output_dir = 'data/LS_Result/Total/Cointegration'
     files = sorted(filename for filename in os.listdir(input_dir))
 
     for file in files:
@@ -240,14 +240,14 @@ if cointegration:
 
 Best = False
 if Best:
-    input_dir = f'Database/Clustering_Result/Best'
+    input_dir = f'data/Clustering_Result/Best'
     subdirectories = [d for d in os.listdir(input_dir)]
 
     for subdir in subdirectories:
         top_df = pd.DataFrame(columns=['month', 'invested', 'outlier', 'first', 'second',
                                        'rest', 'total', 'number of clusters'])
         base_directory = f'{input_dir}/{subdir}'
-        output_dir = f'Database/LS_Result/Best2/{subdir}'
+        output_dir = f'data/LS_Result/Best2/{subdir}'
         files = sorted(filename for filename in os.listdir(base_directory) if filename.endswith('.csv'))
 
         for file in files:

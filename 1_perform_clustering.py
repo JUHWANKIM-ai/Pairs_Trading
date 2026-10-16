@@ -1,9 +1,9 @@
-from utils.PCA_and_ETC import *
+from src.features import *
 
-from Module import Clustering as C
+from src import clustering as C
 
-input_dir = 'Database/characteristics_US'
-output_dir = 'Database/Clustering_Result'
+input_dir = 'data/characteristics_US'
+output_dir = 'data/Clustering_Result'
 
 # hyper parameter K(3, 5,10, 25, 50, 75, 100, 200, 300) should be tested manually.(paper follow)
 K_mean_Save = True

@@ -6,11 +6,11 @@ from collections import deque
 import os
 import numpy as np
 import pandas as pd
-from utils.PCA_and_ETC import read_and_preprocess_data, momentum_prefix_finder
+from src.features import read_and_preprocess_data, momentum_prefix_finder
 
-input_dir = 'Database/Clustering_Result/K_mean'
+input_dir = 'data/Clustering_Result/K_mean'
 subdirectories = [d for d in os.listdir(input_dir)]
-MOM_merged_df = pd.read_csv('Database/Momentum1_Winsorized.csv', index_col=0)
+MOM_merged_df = pd.read_csv('data/Momentum1_Winsorized.csv', index_col=0)
 MOM_merged_df.drop(MOM_merged_df.columns[0], axis=1, inplace=True)
 
 

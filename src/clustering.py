@@ -1,4 +1,4 @@
-from utils.PCA_and_ETC import *
+from src.features import *
 from sklearn.cluster import *
 from scipy.spatial import distance
 from sklearn.neighbors import NearestNeighbors
